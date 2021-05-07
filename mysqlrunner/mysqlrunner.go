@@ -27,7 +27,7 @@ func (runner *Runner) Setup() error {
 			"parseTime": "True",
 		},
 	}
-	dbConn, err := sql.Open("mysql", dbConfig.FormatDSN())
+	dbConn, err := sql.Open("mysql", dbConfig.FormatDSN()+ "?allowNativePasswords=true")
 	if err != nil {
 		return err
 	}
@@ -44,7 +44,7 @@ func (runner *Runner) Setup() error {
 
 	dbConfig.DBName = runner.DBName
 
-	dbConn, err = sql.Open("mysql", dbConfig.FormatDSN())
+	dbConn, err = sql.Open("mysql", dbConfig.FormatDSN()+ "?allowNativePasswords=true")
 	if err != nil {
 		return err
 	}

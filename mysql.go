@@ -28,7 +28,7 @@ func NewMySQLDB(
 	}
 
 	return &mySQLDB{
-		dsn:    config.FormatDSN(),
+		dsn:    config.FormatDSN() + "?allowNativePasswords=true",
 		dbName: database,
 	}
 }
